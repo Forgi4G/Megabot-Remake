@@ -5,7 +5,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/PiPinecone/Megabot-Remake">
-    <img src="./assets/icon.png" alt="Logo" width="200px">
+    <img src="./assets/icon.svg" alt="Logo" width="200px">
   </a>
 
   <h1 align="center">Megabot</h1>
