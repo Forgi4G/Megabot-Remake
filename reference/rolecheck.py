@@ -1,3 +1,7 @@
+import discord
+from discord.ext import commands
+
+
 one = "**1**: Custodians - 150 EXP"
 two = "**2**: Record Keeper - 350 EXP"
 three = "**3**: Book Keeper - 750 EXP"
@@ -16,16 +20,4 @@ li = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n ~~{three}~~ {rhd} \n ~~{four}~~ {rh
 v = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n ~~{three}~~ {rhd} \n ~~{four}~~ {rhd} \n ~~{five}~~ {rhd} \n {six}"
 gv = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n ~~{three}~~ {rhd} \n ~~{four}~~ {rhd} \n ~~{five}~~ {rhd} \n ~~{six}~~ {rhd}"
 
-
-roleabv = {
-    "1": "c",
-    "2": "rk",
-    "3": "bk",
-    "4": "li",
-    "5": "v",
-    "6": "gv"
-}
-
-
-def convabr(rolenumber):
 

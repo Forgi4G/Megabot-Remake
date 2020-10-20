@@ -45,8 +45,27 @@ class Roles(commands.Cog):
                     await ctx.send(f"Error: {err.text}")
         else:
             try:
+                def convabr():
+                    cus = discord.utils.get(ctx.guild.roles, name="Custodian")
+                    rek = discord.utils.get(ctx.guild.roles, name="Record Keeper")
+                    bok = discord.utils.get(ctx.guild.roles, name="Book Keeper")
+                    lib = discord.utils.get(ctx.guild.roles, name="Librarian")
+                    viz = discord.utils.get(ctx.guild.roles, name="Vizier")
+                    grv = discord.utils.get(ctx.guild.roles, name="Grand Vizier")
+                    if cus in ctx.author.roles:
+                        return reference.rolecheck.c
+                    elif rek in ctx.author.roles:
+                        return reference.rolecheck.rk
+                    elif bok in ctx.author.roles:
+                        return reference.rolecheck.bk
+                    elif lib in ctx.author.roles:
+                        return reference.rolecheck.li
+                    elif viz in ctx.author.roles:
+                        return reference.rolecheck.v
+                    elif grv in ctx.author.roles:
+                        return reference.rolecheck.gv
                 embed = discord.Embed(title="MegaBot Store", color=0x9AD2C9)
-                embed.add_field(name="** **", value=reference.rolecheck.roleabv[rnumber],
+                embed.add_field(name="** **", value=convabr(),
                                 inline=False)
                 embed.add_field(name="** **", value="*Use* `!buy role role-number` *to buy a role*")
                 embed.set_footer(text="MegaBot Remake v1.0.0")
