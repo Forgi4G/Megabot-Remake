@@ -66,7 +66,7 @@ class Roles(commands.Cog):
                     elif cus in ctx.author.roles:
                         return reference.rolecheck.c
                     else:
-                        return reference.rolecheck.base
+                        return reference.rolecheck.none
 
                 embed = discord.Embed(title="MegaBot Store", color=0x9AD2C9)
                 embed.add_field(name="** **", value=convabr(), inline=False)
