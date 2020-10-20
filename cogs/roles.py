@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import reference.rolecheck
 
 
 roleids = {
@@ -45,9 +46,7 @@ class Roles(commands.Cog):
         else:
             try:
                 embed = discord.Embed(title="MegaBot Store", color=0x9AD2C9)
-                embed.add_field(name="** **", value="**1**: Custodians - 150 EXP \n **2**: Record Keeper - 350 EXP \n "
-                                                    "**3**: Book Keeper - 750 EXP \n **4**: Librarian - 1500 EXP \n "
-                                                    "**5**: Vizier - 2400 EXP \n **6**: Grand Vizier - 4770 EXP",
+                embed.add_field(name="** **", value=reference.rolecheck.base,
                                 inline=False)
                 embed.add_field(name="** **", value="*Use* `!buy role role-number` *to buy a role*")
                 embed.set_footer(text="MegaBot Remake v1.0.0")
