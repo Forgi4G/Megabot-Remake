@@ -5,6 +5,7 @@
 <br />
 <p align="center">
   <a href="https://media.discordapp.net/attachments/767919869063593984/768255717144133642/b432d821aa5956b1cc2fe2b10861612b_auto_x1.png">
+    <img src="https://media.discordapp.net/attachments/767919869063593984/768255717144133642/b432d821aa5956b1cc2fe2b10861612b_auto_x1.png">
   </a>
 
   <h1 align="center">Megabot</h1>
