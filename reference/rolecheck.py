@@ -9,9 +9,9 @@ ino = "*(You must buy roles in order)*"
 
 base3 = f"{one} \n {two} \n {three} \n {four} \n {five} \n {six}"
 
-c = f"~~{one}~~ {rhd} \n {two} \n {three} {ino} \n {four} {ino} \n {five} {ino} \n {six} {ino}"
-rk = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n {three} \n {four} {ino} \n {five} {ino} \n {six} {ino}"
-bk = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n ~~{three}~~ {rhd} \n {four} \n {five} {ino} \n {six} {ino}"
-li = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n ~~{three}~~ {rhd} \n ~~{four}~~ {rhd} \n {five} \n {six} {ino}"
+c = f"~~{one}~~ {rhd} \n {two} \n ~~{three}~~ {ino} \n ~~{four}~~ {ino} \n ~~{five}~~ {ino} \n ~~{six}~~ {ino}"
+rk = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n {three} \n ~~{four}~~ {ino} \n ~~{five}~~ {ino} \n ~~{six}~~ {ino}"
+bk = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n ~~{three}~~ {rhd} \n {four} \n ~~{five}~~ {ino} \n ~~{six}~~ {ino}"
+li = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n ~~{three}~~ {rhd} \n ~~{four}~~ {rhd} \n {five} \n ~~{six}~~ {ino}"
 v = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n ~~{three}~~ {rhd} \n ~~{four}~~ {rhd} \n ~~{five}~~ {rhd} \n {six}"
 gv = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n ~~{three}~~ {rhd} \n ~~{four}~~ {rhd} \n ~~{five}~~ {rhd} \n ~~{six}~~ {rhd}"
