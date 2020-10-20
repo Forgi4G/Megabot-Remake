@@ -29,7 +29,7 @@ class Roles(commands.Cog):
         name="test",
         aliases=["t"]
     )
-    @commands.dm_only()
+    # @commands.dm_only()
     async def buy_role(self, ctx: commands.Context, rnumber=None):
         if rnumber:
             role = discord.utils.get(ctx.guild.roles, name=rolenames[rnumber])
@@ -39,7 +39,7 @@ class Roles(commands.Cog):
                 try:
                     await self.client.http.add_role(guild_id=767915067478900746, user_id=ctx.message.author.id,
                                                     role_id=roleids[rnumber])
-                    await ctx.send(f"Role added")  # add context
+                    await ctx.send(f"Role: `{rolenames[rnumber]}` added")  # add context
                 except discord.HTTPException as err:
                     await ctx.send(f"Error: {err.text}")
         else:
