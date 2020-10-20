@@ -26,8 +26,8 @@ class Roles(commands.Cog):
         self.client = client
 
     @commands.command(
-        name="test",
-        aliases=["t"]
+        name="buy",
+        aliases=["roles"]
     )
     # @commands.dm_only()
     async def buy_role(self, ctx: commands.Context, rnumber=None):
