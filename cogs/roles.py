@@ -65,8 +65,7 @@ class Roles(commands.Cog):
                     elif grv in ctx.author.roles:
                         return reference.rolecheck.gv
                 embed = discord.Embed(title="MegaBot Store", color=0x9AD2C9)
-                embed.add_field(name="** **", value=convabr(),
-                                inline=False)
+                embed.add_field(name="** **", value=convabr(), inline=False)
                 embed.add_field(name="** **", value="*Use* `!buy role role-number` *to buy a role*")
                 embed.set_footer(text="MegaBot Remake v1.0.0")
                 await ctx.send(embed=embed)
