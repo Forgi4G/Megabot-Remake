@@ -27,10 +27,10 @@ class Roles(commands.Cog):
 
     @commands.command(
         name="buy",
-        aliases=["roles"]
+        aliases=[]
     )
     # @commands.dm_only()
-    async def buy_role(self, ctx: commands.Context, rnumber=None):
+    async def buy_role(self, ctx: commands.Context, role="role", rnumber=None):
         if rnumber:
             role = discord.utils.get(ctx.guild.roles, name=rolenames[rnumber])
             if role in ctx.author.roles:
@@ -49,7 +49,7 @@ class Roles(commands.Cog):
                                                     "**3**: Book Keeper - 750 EXP \n **4**: Librarian - 1500 EXP \n "
                                                     "**5**: Vizier - 2400 EXP \n **6**: Grand Vizier - 4770 EXP",
                                 inline=False)
-                embed.add_field(name="** **", value="*Use* `!buy role-number` *to buy a role*")
+                embed.add_field(name="** **", value="*Use* `!buy role role-number` *to buy a role*")
                 embed.set_footer(text="MegaBot Remake v1.0.0")
                 await ctx.send(embed=embed)
             except discord.HTTPException as err:
