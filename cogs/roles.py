@@ -40,7 +40,7 @@ class Roles(commands.Cog):
                 try:
                     await self.client.http.add_role(guild_id=767915067478900746, user_id=ctx.message.author.id,
                                                     role_id=roleids[rnumber])
-                    await ctx.send(f"Role: `{rolenames[rnumber]}` added")  # add context
+                    await ctx.send("You successfully bought a new role!")  # add context
                 except discord.HTTPException as err:
                     await ctx.send(f"Error: {err.text}")
         else:
