@@ -52,18 +52,20 @@ class Roles(commands.Cog):
                     lib = discord.utils.get(ctx.guild.roles, name="Librarian")
                     viz = discord.utils.get(ctx.guild.roles, name="Vizier")
                     grv = discord.utils.get(ctx.guild.roles, name="Grand Vizier")
-                    if cus in ctx.author.roles:
-                        return reference.rolecheck.c
-                    elif rek in ctx.author.roles:
-                        return reference.rolecheck.rk
-                    elif bok in ctx.author.roles:
-                        return reference.rolecheck.bk
-                    elif lib in ctx.author.roles:
-                        return reference.rolecheck.li
+
+                    if grv in ctx.author.roles:
+                        return reference.rolecheck.gv
                     elif viz in ctx.author.roles:
                         return reference.rolecheck.v
-                    elif grv in ctx.author.roles:
-                        return reference.rolecheck.gv
+                    elif lib in ctx.author.roles:
+                        return reference.rolecheck.li
+                    elif bok in ctx.author.roles:
+                        return reference.rolecheck.bk
+                    elif rek in ctx.author.roles:
+                        return reference.rolecheck.rk
+                    elif cus in ctx.author.roles:
+                        return reference.rolecheck.c
+
                 embed = discord.Embed(title="MegaBot Store", color=0x9AD2C9)
                 embed.add_field(name="** **", value=convabr(), inline=False)
                 embed.add_field(name="** **", value="*Use* `!buy role role-number` *to buy a role*")
