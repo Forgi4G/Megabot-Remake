@@ -15,3 +15,17 @@ bk = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n ~~{three}~~ {rhd} \n {four} \n ~~{f
 li = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n ~~{three}~~ {rhd} \n ~~{four}~~ {rhd} \n {five} \n ~~{six}~~ {ino}"
 v = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n ~~{three}~~ {rhd} \n ~~{four}~~ {rhd} \n ~~{five}~~ {rhd} \n {six}"
 gv = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n ~~{three}~~ {rhd} \n ~~{four}~~ {rhd} \n ~~{five}~~ {rhd} \n ~~{six}~~ {rhd}"
+
+
+roleabv = {
+    "1": "c",
+    "2": "rk",
+    "3": "bk",
+    "4": "li",
+    "5": "v",
+    "6": "gv"
+}
+
+
+def convabr(rolenumber):
+

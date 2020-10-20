@@ -46,7 +46,7 @@ class Roles(commands.Cog):
         else:
             try:
                 embed = discord.Embed(title="MegaBot Store", color=0x9AD2C9)
-                embed.add_field(name="** **", value=reference.rolecheck.base,
+                embed.add_field(name="** **", value=reference.rolecheck.roleabv[rnumber],
                                 inline=False)
                 embed.add_field(name="** **", value="*Use* `!buy role role-number` *to buy a role*")
                 embed.set_footer(text="MegaBot Remake v1.0.0")
