@@ -9,6 +9,13 @@ from secrets import TOKEN
 client = commands.Bot(command_prefix="!", case_insensitive=True)
 
 
+@client.event
+async def on_ready():
+    print('Logged in as {0.user}'.format(client))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Squares move"))
+    print(f"Currently in {len(list(client.guilds))} guilds.")
+
+
 if __name__ == '__main__':
     for file in os.listdir("cogs"):
         if file.endswith(".py"):
