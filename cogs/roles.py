@@ -49,7 +49,7 @@ class Roles(commands.Cog):
                                                     "**3**: Book Keeper - 750 EXP \n **4**: Librarian - 1500 EXP \n "
                                                     "**5**: Vizier - 2400 EXP \n **6**: Grand Vizier - 4770 EXP",
                                 inline=False)
-                embed.add_field(name="** **", value="*Use* `!buy roles role-number` *to buy a role*")
+                embed.add_field(name="** **", value="*Use* `!buy role-number` *to buy a role*")
                 embed.set_footer(text="MegaBot Remake v1.0.0")
                 await ctx.send(embed=embed)
             except discord.HTTPException as err:
