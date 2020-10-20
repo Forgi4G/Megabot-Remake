@@ -11,6 +11,15 @@ roleids = {
     "6": 767921509867454504
 }
 
+rolenames = {
+    "1": "Custodian",
+    "2": "Record Keeper",
+    "3": "Book Keeper",
+    "4": "Librarian",
+    "5": "Vizier",
+    "6": "Grand Vizier"
+}
+
 
 class Roles(commands.Cog):
     def __init__(self, client: commands.Bot):
@@ -20,15 +29,19 @@ class Roles(commands.Cog):
         name="test",
         aliases=["t"]
     )
-    # @commands.dm_only
+    @commands.dm_only()
     async def buy_role(self, ctx: commands.Context, rnumber=None):
         if rnumber:
-            try:
-                await self.client.http.add_role(guild_id=767915067478900746, user_id=ctx.message.author.id,
-                                                role_id=roleids[rnumber])
-                await ctx.send(f"Role added")  # add context
-            except discord.HTTPException as err:
-                await ctx.send(f"Error: {err.text}")
+            role = discord.utils.get(ctx.guild.roles, name=rolenames[rnumber])
+            if role in ctx.author.roles:
+                await ctx.send("You already have this role.")
+            else:
+                try:
+                    await self.client.http.add_role(guild_id=767915067478900746, user_id=ctx.message.author.id,
+                                                    role_id=roleids[rnumber])
+                    await ctx.send(f"Role added")  # add context
+                except discord.HTTPException as err:
+                    await ctx.send(f"Error: {err.text}")
         else:
             try:
                 embed = discord.Embed(title="MegaBot Store", color=0x9AD2C9)
