@@ -129,7 +129,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-
+.idea
 .idea/.gitignore
 .idea/Megabot-Remake.iml
 .idea/inspectionProfiles/
