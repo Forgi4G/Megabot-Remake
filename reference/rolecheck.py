@@ -7,7 +7,7 @@ six = "**6**: Grand Vizier - 4770 EXP"
 rhd = "*(You already have that role)*"
 ino = "*(You must buy roles in order)*"
 
-base3 = f"{one} \n {two} \n {three} \n {four} \n {five} \n {six}"
+base = f"{one} \n {two} \n {three} \n {four} \n {five} \n {six}"
 
 c = f"~~{one}~~ {rhd} \n {two} \n ~~{three}~~ {ino} \n ~~{four}~~ {ino} \n ~~{five}~~ {ino} \n ~~{six}~~ {ino}"
 rk = f"~~{one}~~ {rhd} \n ~~{two}~~ {rhd} \n {three} \n ~~{four}~~ {ino} \n ~~{five}~~ {ino} \n ~~{six}~~ {ino}"
