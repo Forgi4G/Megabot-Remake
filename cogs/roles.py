@@ -23,7 +23,10 @@ class Roles(commands.Cog):
     # @commands.dm_only
     async def buy_role(self, ctx: commands.Context, rnumber=None):
         if rnumber:
-
+            try:
+                await ctx.send(roleids[rnumber])
+            except discord.HTTPException as err:
+                await ctx.send(f"Error: {err.text}")
         else:
             try:
                 embed = discord.Embed(title="MegaBot Store", color=0x9AD2C9)
