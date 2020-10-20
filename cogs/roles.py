@@ -2,10 +2,10 @@ import discord
 from discord.ext import commands
 
 
-roleids =	{
+roleids = {
     "1": 767921468272934972,
-    "2": 767921943184932904,
-    "3": 767922049443954719,
+    "2": 767922049443954719,
+    "3": 767921943184932904,
     "4": 767921702314573834,
     "5": 767922513664802827,
     "6": 767921509867454504
@@ -24,7 +24,9 @@ class Roles(commands.Cog):
     async def buy_role(self, ctx: commands.Context, rnumber=None):
         if rnumber:
             try:
-                await ctx.send(roleids[rnumber])
+                await self.client.http.add_role(guild_id=767915067478900746, user_id=ctx.message.author.id,
+                                                role_id=roleids[rnumber])
+                await ctx.send(f"Role added")  # add context
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
         else:
