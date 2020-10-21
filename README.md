@@ -11,7 +11,7 @@
   <h1 align="center">Megabot</h1>
 
   <p align="center">
-    A remake of the classic Megabot used in discord suggestions
+    A remake of the classic Megabot used in Discord Feedback
     <br />
     <a href="https://github.com/PiPinecone/Megabot-Remake/wiki"><strong>Explore the docs »</strong></a>
     <br />
