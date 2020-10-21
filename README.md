@@ -52,8 +52,8 @@
 
 ## About The Project
 <p align="left">
-  <a href="https://media.discordapp.net/attachments/767919869063593984/768229080062885939/Screen_Shot_2020-10-20_at_3.45.42_PM.png?width=726&height=676">
-    <img src="https://media.discordapp.net/attachments/767919869063593984/768229080062885939/Screen_Shot_2020-10-20_at_3.45.42_PM.png?width=726&height=676">
+  <a href="">
+    <img src="">
   </a>
 
 
