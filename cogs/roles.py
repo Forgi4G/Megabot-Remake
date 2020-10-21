@@ -53,7 +53,7 @@ class Roles(commands.Cog):
                     viz = discord.utils.get(ctx.guild.roles, name="Vizier")
                     grv = discord.utils.get(ctx.guild.roles, name="Grand Vizier")
                     
-                    let roleArr = [cus, rek, box, lib, viz, grv]
+                    roleArr = [cus, rek, box, lib, viz, grv]
                     
                     for role in roleArr:
                         if role in ctx.author.roles:
