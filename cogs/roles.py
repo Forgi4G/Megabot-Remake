@@ -80,6 +80,27 @@ class Roles(commands.Cog):
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
 
+    @commands.command(
+        name="clearroles",
+        aliases=["clear", "c", "cr"]
+    )
+    async def clr(self, ctx: commands.Context):
+        self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
+                                     role_id="767921468272934972")
+        self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
+                                     role_id="767922049443954719")
+        self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
+                                     role_id="767921943184932904")
+        self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
+                                     role_id="767921702314573834")
+        self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
+                                     role_id="767922513664802827")
+        self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
+                                     role_id="767921509867454504")
+        # This async function is bad and should be changed
+
+
+
 
 def setup(client: commands.Bot):
     client.add_cog(Roles(client))
