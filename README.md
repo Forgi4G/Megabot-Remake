@@ -126,7 +126,7 @@ You are requested to follow the contribution guidelines specified in [CONTRIBUTI
 
 ## License
 
-Distributed under the GNU GPLv3 License. See [`LICENSE`](./LICENSE) for more information.
+Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more information.
 
 ---
 
