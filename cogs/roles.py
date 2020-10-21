@@ -55,7 +55,7 @@ class Roles(commands.Cog):
                     
                     let roleArr = [cus, rek, box, lib, viz, grv]
                     
-                    for role in ctx.author.roles:
+                    for role in roleArr:
                         if role in ctx.author.roles:
                             return reference.rolecheck[role]
                         else: 
