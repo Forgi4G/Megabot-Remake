@@ -3,6 +3,10 @@ from discord.ext import commands
 import reference.rolecheck
 
 
+mgi = "https://cdn.discordapp.com/attachments/767919869063593984/768255717144133642" \
+      "/b432d821aa5956b1cc2fe2b10861612b_auto_x1.png "
+
+
 roleids = {
     "1": 767921468272934972,
     "2": 767922049443954719,
@@ -71,7 +75,7 @@ class Roles(commands.Cog):
                 embed = discord.Embed(title="MegaBot Store", color=0x9AD2C9)
                 embed.add_field(name="** **", value=convabr(), inline=False)
                 embed.add_field(name="** **", value="*Use* `!buy roles role-number` *to buy a role*")
-                embed.set_footer(text="MegaBot Remake v1.0.0")
+                embed.set_footer(text="MegaBot Remake v1.0.0", icon_url=mgi)
                 await ctx.send(embed=embed)
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
