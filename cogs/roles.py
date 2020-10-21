@@ -54,10 +54,10 @@ class Roles(commands.Cog):
                     grv = discord.utils.get(ctx.guild.roles, name="Grand Vizier")
                     
                     roleArr = [cus, rek, box, lib, viz, grv]
-                    
-                    for role in roleArr:
-                        if role in ctx.author.roles:
-                            return reference.rolecheck[role]
+                    roleNames = ["c", "rk", "bk", "li", "v", "gv"]
+                    for index in range(len(roleArr)):
+                        if roleArr[index] in ctx.author.roles:
+                            return reference.rolecheck[roleNames[index]]
                         else: 
                             return reference.rolecheck.none
 
