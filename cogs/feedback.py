@@ -18,7 +18,7 @@ class Feedback(commands.Cog):
             embed.add_field(name="Votes", value="0", inline=True)
             embed.add_field(name="Comments", value="0", inline=True)
             embed.set_footer(text=f"Category • {datetime.today().strftime('%m-%d-%Y')}")
-
+            await ctx.send(embed=embed)
         except discord.HTTPException as err:
             await ctx.send(f"Error: {err.text}")
 
