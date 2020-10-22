@@ -10,7 +10,7 @@ class Feedback(commands.Cog):
     @commands.command(
         name="suggest"
     )
-    async def suggest(self, ctx:commands.Context, title: str, separator="|", description=None):
+    async def suggest(self, ctx: commands.Context, title: str, separator="|", description=None):
         try:
             embed = discord.Embed(title=title, description=description, color=0x3499DB)
             embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
