@@ -85,18 +85,19 @@ class Roles(commands.Cog):
         aliases=["clear", "c", "cr"]
     )
     async def clr(self, ctx: commands.Context):
-        self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
-                                     role_id="767921468272934972")
-        self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
-                                     role_id="767922049443954719")
-        self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
-                                     role_id="767921943184932904")
-        self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
-                                     role_id="767921702314573834")
-        self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
-                                     role_id="767922513664802827")
-        self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
-                                     role_id="767921509867454504")
+        await self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
+                                           role_id="767921468272934972")
+        await self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
+                                           role_id="767922049443954719")
+        await self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
+                                           role_id="767921943184932904")
+        await self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
+                                           role_id="767921702314573834")
+        await self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
+                                           role_id="767922513664802827")
+        await self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
+                                           role_id="767921509867454504")
+        await ctx.send("Your custodian roles have been cleared.")
         # This async function is bad and should be changed
 
 
