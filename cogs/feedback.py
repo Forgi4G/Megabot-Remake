@@ -12,15 +12,11 @@ class Feedback(commands.Cog):
     )
     async def suggest(self, ctx:commands.Context, title: str, separator="|", description=None):
         try:
-            user = ctx.message.author
-            pf = user.avatar_url
-            name = user.display_name
             embed = discord.Embed(title=title, description=description, color=0x3499DB)
-            embed.set_author(name=name, icon_url=pf)
+            embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
             embed.add_field(name="Opinion", value="0", inline=True)
             embed.add_field(name="Votes", value="0", inline=True)
             embed.add_field(name="Comments", value="0", inline=True)
-            embed.add_field(name="Additional info", value="This suggestion is normal", inline=False)
             embed.set_footer(text=f"Category • {datetime.date.today()}")
             await ctx.send(embed=embed)
         except discord.HTTPException as err:
