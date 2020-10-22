@@ -35,7 +35,7 @@ class Roles(commands.Cog):
         aliases=[]
     )
     # @commands.dm_only()
-    async def buy_role(self, ctx: commands.Context, role=role, rnumber=None):
+    async def buy_role(self, ctx: commands.Context, role="role", rnumber=None):
         if rnumber:
             role = discord.utils.get(ctx.guild.roles, name=rolenames[rnumber])
             if role in ctx.author.roles:
@@ -98,8 +98,6 @@ class Roles(commands.Cog):
         self.client.http.remove_role(guild_id=ctx.message.guild.id, user_id=ctx.message.author.id,
                                      role_id="767921509867454504")
         # This async function is bad and should be changed
-
-
 
 
 def setup(client: commands.Bot):
