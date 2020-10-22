@@ -35,7 +35,7 @@ class Roles(commands.Cog):
         aliases=[]
     )
     # @commands.dm_only()
-    async def buy_role(self, ctx: commands.Context, rnumber=None):
+    async def buy_role(self, ctx: commands.Context, role=role, rnumber=None):
         if rnumber:
             role = discord.utils.get(ctx.guild.roles, name=rolenames[rnumber])
             if role in ctx.author.roles:

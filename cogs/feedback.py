@@ -9,6 +9,7 @@ class Feedback(commands.Cog):
     @commands.command(
         name="suggest"
     )
+    async def suggest(self, ctx:commands.Context, title: str, ):
 
 
 def setup(client: commands.Bot):
