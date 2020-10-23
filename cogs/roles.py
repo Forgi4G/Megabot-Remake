@@ -56,14 +56,21 @@ class Roles(commands.Cog):
                     lib = discord.utils.get(ctx.guild.roles, name="Librarian")
                     viz = discord.utils.get(ctx.guild.roles, name="Vizier")
                     grv = discord.utils.get(ctx.guild.roles, name="Grand Vizier")
-                    
-                    roleArr = [cus, rek, box, lib, viz, grv]
-                    roleNames = ["c", "rk", "bk", "li", "v", "gv"]
-                    for index in range(len(roleArr)):
-                        if roleArr[index] in ctx.author.roles:
-                            return reference.rolecheck[roleNames[index]]
-                        else: 
-                            return reference.rolecheck.none
+
+                    if grv in ctx.author.roles:
+                        return reference.rolecheck.gv
+                    elif viz in ctx.author.roles:
+                        return reference.rolecheck.v
+                    elif lib in ctx.author.roles:
+                        return reference.rolecheck.li
+                    elif bok in ctx.author.roles:
+                        return reference.rolecheck.bk
+                    elif rek in ctx.author.roles:
+                        return reference.rolecheck.rk
+                    elif cus in ctx.author.roles:
+                        return reference.rolecheck.c
+                    else:
+                        return reference.rolecheck.none
 
                 embed = discord.Embed(title="MegaBot Store", color=0x9AD2C9)
                 embed.add_field(name="** **", value=convabr(), inline=False)
