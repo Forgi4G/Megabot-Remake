@@ -25,7 +25,8 @@ class Feedback(commands.Cog):
                 await ctx.send(f"Error: {err.text}")
         else:
             try:
-                embed = discord.Embed(title=content, description=None, color=0x3499DB)
+                stri = " ".join(content)
+                embed = discord.Embed(title=stri, description=None, color=0x3499DB)
                 embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
                 embed.add_field(name="Opinion", value="0", inline=True)
                 embed.add_field(name="Votes", value="0", inline=True)
