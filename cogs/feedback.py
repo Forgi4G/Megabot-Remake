@@ -16,7 +16,7 @@ class Feedback(commands.Cog):
                 stri = " ".join(content)
                 indx = stri.find("|")
                 title = stri[0:indx]
-                description = stri[indx + 1:len(content) + 1]
+                description = stri[indx + 1:len(stri) + 1]
                 embed = discord.Embed(title=title, description=description, color=0x3499DB)
                 embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
                 embed.set_footer(text=f"Category • {datetime.today().strftime('%m-%d-%Y')}")
