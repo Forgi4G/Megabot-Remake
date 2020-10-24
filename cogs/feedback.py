@@ -36,6 +36,10 @@ class Feedback(commands.Cog):
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
 
+    # @commands.command(
+    #     name="info"
+    # )
+    # async def info(self, ctx: commands.Context):
 
 def setup(client: commands.Bot):
     client.add_cog(Feedback(client))
