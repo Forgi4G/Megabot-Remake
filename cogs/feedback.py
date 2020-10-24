@@ -1,6 +1,12 @@
 import discord
 from discord.ext import commands
 from datetime import datetime
+from pymongo import MongoClient
+from secrets import MURL
+
+
+mcli = MongoClient(MURL)
+db = mcli.feedback
 
 
 class Feedback(commands.Cog):
@@ -21,6 +27,7 @@ class Feedback(commands.Cog):
                 embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
                 embed.set_footer(text=f"Category • {datetime.today().strftime('%m-%d-%Y')}")
                 await ctx.send(embed=embed)
+                await db.suggestions.insert_one(stri)
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
         else:
