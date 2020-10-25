@@ -16,6 +16,7 @@ class Feedback(commands.Cog):
     @commands.command(
         name="suggest"
     )
+    @commands.guild_only()
     async def suggest(self, ctx: commands.Context, *content: str):
         if "|" in content:
             try:
@@ -75,8 +76,23 @@ class Feedback(commands.Cog):
                 await ctx.send(f"Error: {err.text}")
 
     # @commands.command(
+        # name="comment"
+    # )
+    # @commands.guild_only()
+    # async def comment(self, ctx: commands.Context, *content: str):
+        # try:
+            # stri = " ".join(content)
+            # embed = discord.Embed(title="Comment added:", description=stri, color=0x3499DB)
+            # embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
+            # embed.set_footer(text=f"Category • Suggestion ID: {fb_id}")
+            # await ctx.send(embed=embed)
+        # except discord.HTTPException as err:
+            # await ctx.send(f"Error: {err.text}")
+
+    # @commands.command(
     #     name="info"
     # )
+    # @commands.guild_only()
     # async def info(self, ctx: commands.Context):
 
 

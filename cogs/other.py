@@ -9,6 +9,7 @@ class Other(commands.Cog):
     @commands.command(
         name="ping"
     )
+    @commands.guild_only()
     async def ping(self, ctx: commands.Context):
         await ctx.send(f"<@!{ctx.message.author.id}>, Pong!")
 
