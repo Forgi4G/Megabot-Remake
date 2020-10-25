@@ -27,20 +27,21 @@ class Feedback(commands.Cog):
                 embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
                 embed.set_footer(text=f"Category • {datetime.today().strftime('%m-%d-%Y')}")
                 await ctx.send(embed=embed)
+                # await message.add_reaction("<:upvote:770018250368352307>")
                 suggestion = {
                     title: title,
                     description: description
                 }
-                db.suggestions.insert_one(suggestion)
-                # channel = 768231762705907743
-                # fb_id = fb.get("_id")
-                # embed_2 = discord.Embed(title=title, description=description, color=0x3499DB)
-                # embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
-                # embed.add_field(name="Opinion", value="0", inline=True)
-                # embed.add_field(name="Votes", value="0", inline=True)
-                # embed.add_field(name="Comments", value="0", inline=True)
-                # embed.set_footer(text=f"Category • Suggestion ID: {fb_id}")
-                # await channel.send(embed=embed_2)
+                fb = db.suggestions.insert_one(suggestion)
+                channel = self.client.get_channel(768231762705907743)
+                fb_id = fb.inserted_id
+                embed_2 = discord.Embed(title=title, description=description, color=0x4c2bbe)
+                embed_2.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
+                embed_2.add_field(name="Opinion", value="0", inline=True)
+                embed_2.add_field(name="Votes", value="0", inline=True)
+                embed_2.add_field(name="Comments", value="0", inline=True)
+                embed_2.set_footer(text=f"Category • Suggestion ID: {fb_id}")
+                await channel.send(embed=embed_2)
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
         else:
