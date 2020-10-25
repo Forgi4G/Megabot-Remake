@@ -41,7 +41,8 @@ class Feedback(commands.Cog):
                 embed_2.add_field(name="Comments", value="0", inline=True)
                 embed_2.set_footer(text=f"Category • Suggestion ID: {fb_id}")
                 msg = await channel.send(embed=embed_2)
-                await msg.add_reaction("<:upvote:770038677031354388>")
+                await msg.add_reaction("<:upvote:767964478570496030>")
+                await msg.add_reaction("<:downvote:767964478574690304>")
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
         else:
@@ -68,7 +69,8 @@ class Feedback(commands.Cog):
                 embed_2.add_field(name="Comments", value="0", inline=True)
                 embed_2.set_footer(text=f"Category • Suggestion ID: {fb_id}")
                 msg = await channel.send(embed=embed_2)
-                await msg.add_reaction("<:upvote:770038677031354388>")
+                await msg.add_reaction("<:upvote:767964478570496030>")
+                await msg.add_reaction("<:downvote:7679644785746903044>")
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
 
