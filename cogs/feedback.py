@@ -7,6 +7,7 @@ from secrets import MURL
 
 mcli = MongoClient(MURL)
 db = mcli.feedback
+col = db.suggestions
 
 
 class Feedback(commands.Cog):
@@ -24,13 +25,15 @@ class Feedback(commands.Cog):
                 indx = stri.find("|")
                 title = stri[0:indx]
                 description = stri[indx + 1:len(stri) + 1]
+                num = db.col.count() + 1
                 embed = discord.Embed(title=title, description=description, color=0x3499DB)
                 embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
                 embed.set_footer(text=f"Category • {datetime.today().strftime('%m-%d-%Y')}")
                 await ctx.send(embed=embed)
                 suggestion = {
-                    title: title,
-                    description: description
+                    "fid": num,
+                    "title": title,
+                    "description": description
                 }
                 fb = db.suggestions.insert_one(suggestion)
                 channel = self.client.get_channel(768231762705907743)
@@ -50,6 +53,7 @@ class Feedback(commands.Cog):
             try:
                 stri = " ".join(content)
                 title = stri
+                num = db.col.countDocuments() + 1
                 embed = discord.Embed(title=stri, description=None, color=0x3499DB)
                 embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
                 embed.add_field(name="Opinion", value="0", inline=True)
@@ -58,7 +62,8 @@ class Feedback(commands.Cog):
                 embed.set_footer(text=f"Category • {datetime.today().strftime('%m-%d-%Y')}")
                 await ctx.send(embed=embed)
                 suggestion = {
-                    title: title
+                    "fid": num,
+                    "title": title
                 }
                 fb = db.suggestions.insert_one(suggestion)
                 channel = self.client.get_channel(768231762705907743)
@@ -71,7 +76,7 @@ class Feedback(commands.Cog):
                 embed_2.set_footer(text=f"Category • Suggestion ID: {fb_id}")
                 msg = await channel.send(embed=embed_2)
                 await msg.add_reaction("<:upvote:767964478570496030>")
-                await msg.add_reaction("<:downvote:7679644785746903044>")
+                await msg.add_reaction("<:downvote:767964478574690304>")
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
 
