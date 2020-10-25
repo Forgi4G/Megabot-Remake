@@ -27,7 +27,6 @@ class Feedback(commands.Cog):
                 embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
                 embed.set_footer(text=f"Category • {datetime.today().strftime('%m-%d-%Y')}")
                 await ctx.send(embed=embed)
-                # await message.add_reaction("<:upvote:770018250368352307>")
                 suggestion = {
                     title: title,
                     description: description
@@ -41,12 +40,14 @@ class Feedback(commands.Cog):
                 embed_2.add_field(name="Votes", value="0", inline=True)
                 embed_2.add_field(name="Comments", value="0", inline=True)
                 embed_2.set_footer(text=f"Category • Suggestion ID: {fb_id}")
-                await channel.send(embed=embed_2)
+                msg = await channel.send(embed=embed_2)
+                await msg.add_reaction("<:upvote:770038677031354388>")
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
         else:
             try:
                 stri = " ".join(content)
+                title = stri
                 embed = discord.Embed(title=stri, description=None, color=0x3499DB)
                 embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
                 embed.add_field(name="Opinion", value="0", inline=True)
@@ -54,6 +55,20 @@ class Feedback(commands.Cog):
                 embed.add_field(name="Comments", value="0", inline=True)
                 embed.set_footer(text=f"Category • {datetime.today().strftime('%m-%d-%Y')}")
                 await ctx.send(embed=embed)
+                suggestion = {
+                    title: title
+                }
+                fb = db.suggestions.insert_one(suggestion)
+                channel = self.client.get_channel(768231762705907743)
+                fb_id = fb.inserted_id
+                embed_2 = discord.Embed(title=title, description=None, color=0x4c2bbe)
+                embed_2.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
+                embed_2.add_field(name="Opinion", value="0", inline=True)
+                embed_2.add_field(name="Votes", value="0", inline=True)
+                embed_2.add_field(name="Comments", value="0", inline=True)
+                embed_2.set_footer(text=f"Category • Suggestion ID: {fb_id}")
+                msg = await channel.send(embed=embed_2)
+                await msg.add_reaction("<:upvote:770038677031354388>")
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
 
