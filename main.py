@@ -3,8 +3,7 @@ from discord.ext import commands
 import os
 import traceback
 from pymongo import MongoClient
-from secrets import TOKEN
-from secrets import MURL
+from secrets import TOKEN, MURL
 # import json
 
 
