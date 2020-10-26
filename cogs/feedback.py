@@ -2,9 +2,11 @@ import discord
 from discord.ext import commands
 from datetime import datetime
 from pymongo import MongoClient, ReturnDocument
-from secrets import MURL
+from secrets import MURL, WURL
+from discord_webhook import DiscordWebhook
 
 
+webhook = DiscordWebhook(url=WURL)
 mcli = MongoClient(MURL)
 db = mcli.feedback
 col = db.suggestions
