@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from datetime import datetime
-from pymongo import MongoClient
+from pymongo import MongoClient, ReturnDocument
 from secrets import MURL
 
 
@@ -33,7 +33,8 @@ class Feedback(commands.Cog):
                 suggestion = {
                     "fid": num,
                     "title": title,
-                    "description": description
+                    "description": description,
+                    "comments": []
                 }
                 fb = db.suggestions.insert_one(suggestion)
                 channel = self.client.get_channel(768231762705907743)
@@ -64,7 +65,8 @@ class Feedback(commands.Cog):
                 await ctx.send(embed=embed)
                 suggestion = {
                     "fid": num,
-                    "title": title
+                    "title": title,
+                    "#comments": 0
                 }
                 fb = db.suggestions.insert_one(suggestion)
                 channel = self.client.get_channel(768231762705907743)
@@ -81,26 +83,6 @@ class Feedback(commands.Cog):
                 await msg.add_reaction("<:downvote:767964478574690304>")
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
-
-    # @commands.command(
-        # name="comment"
-    # )
-    # @commands.guild_only()
-    # async def comment(self, ctx: commands.Context, *content: str):
-        # try:
-            # stri = " ".join(content)
-            # embed = discord.Embed(title="Comment added:", description=stri, color=0x3499DB)
-            # embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
-            # embed.set_footer(text=f"Category • Suggestion ID: {fb_id}")
-            # await ctx.send(embed=embed)
-        # except discord.HTTPException as err:
-            # await ctx.send(f"Error: {err.text}")
-
-    # @commands.command(
-    #     name="info"
-    # )
-    # @commands.guild_only()
-    # async def info(self, ctx: commands.Context):
 
 
 def setup(client: commands.Bot):
