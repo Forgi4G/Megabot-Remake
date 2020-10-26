@@ -37,13 +37,14 @@ class Feedback(commands.Cog):
                 }
                 fb = db.suggestions.insert_one(suggestion)
                 channel = self.client.get_channel(768231762705907743)
-                fb_id = fb.inserted_id
+                fbfd = db.suggestions.find_one({'_id': fb.inserted_id})
+                fid = fbfd["fid"]
                 embed_2 = discord.Embed(title=title, description=description, color=0x4c2bbe)
                 embed_2.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
                 embed_2.add_field(name="Opinion", value="0", inline=True)
                 embed_2.add_field(name="Votes", value="0", inline=True)
                 embed_2.add_field(name="Comments", value="0", inline=True)
-                embed_2.set_footer(text=f"Category • Suggestion ID: {fb_id}")
+                embed_2.set_footer(text=f"Category • Suggestion ID: {fid}")
                 msg = await channel.send(embed=embed_2)
                 await msg.add_reaction("<:upvote:767964478570496030>")
                 await msg.add_reaction("<:downvote:767964478574690304>")
@@ -67,13 +68,14 @@ class Feedback(commands.Cog):
                 }
                 fb = db.suggestions.insert_one(suggestion)
                 channel = self.client.get_channel(768231762705907743)
-                fb_id = fb.inserted_id
+                fbfd = db.suggestions.find_one({'_id': fb.inserted_id})
+                fid = fbfd.fid
                 embed_2 = discord.Embed(title=title, description=None, color=0x4c2bbe)
                 embed_2.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
                 embed_2.add_field(name="Opinion", value="0", inline=True)
                 embed_2.add_field(name="Votes", value="0", inline=True)
                 embed_2.add_field(name="Comments", value="0", inline=True)
-                embed_2.set_footer(text=f"Category • Suggestion ID: {fb_id}")
+                embed_2.set_footer(text=f"Category • Suggestion ID: {fid}")
                 msg = await channel.send(embed=embed_2)
                 await msg.add_reaction("<:upvote:767964478570496030>")
                 await msg.add_reaction("<:downvote:767964478574690304>")
