@@ -2,9 +2,11 @@ import discord
 from discord.ext import commands
 from datetime import datetime
 from pymongo import MongoClient, ReturnDocument
-from secrets import MURL
+from secrets import MURL, WURL
+from discord_webhook import DiscordWebhook, DiscordEmbed
 
 
+webhook = DiscordWebhook(url=WURL)
 mcli = MongoClient(MURL)
 db = mcli.feedback
 col = db.suggestions
@@ -24,16 +26,12 @@ class Feedback(commands.Cog):
                 title = stri[0 : indx - 1]
                 description = stri[indx + 2 : len(stri) + 1]
                 num = db.suggestions.count() + 1
-                embed = discord.Embed(
-                    title=title, description=description, color=0x3499DB
-                )
-                embed.set_author(
-                    name=ctx.message.author.display_name,
-                    icon_url=ctx.message.author.avatar_url,
-                )
-                embed.set_footer(
-                    text=f"Category • {datetime.today().strftime('%m-%d-%Y')}"
-                )
+
+                channel = self.client.get_channel(768231762705907743)
+                embed = discord.Embed(title=title, description=description, color=0x3499DB)
+                embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
+                embed.set_footer(text=f"Category • {datetime.today().strftime('%m-%d-%Y')}")
+
                 await ctx.send(embed=embed)
                 suggestion = {
                     "fid": num,
@@ -42,21 +40,17 @@ class Feedback(commands.Cog):
                     "comments": [],
                 }
                 fb = db.suggestions.insert_one(suggestion)
-                channel = self.client.get_channel(768231762705907743)
-                fbfd = db.suggestions.find_one({"_id": fb.inserted_id})
+                fbfd = db.suggestions.find_one({'_id': fb.inserted_id})
                 fid = fbfd["fid"]
-                embed_2 = discord.Embed(
-                    title=title, description=description, color=0x4C2BBE
-                )
-                embed_2.set_author(
-                    name=ctx.message.author.display_name,
-                    icon_url=ctx.message.author.avatar_url,
-                )
-                embed_2.add_field(name="Opinion", value="0", inline=True)
-                embed_2.add_field(name="Votes", value="0", inline=True)
-                embed_2.add_field(name="Comments", value="0", inline=True)
+                embed_2 = DiscordEmbed(title=title, description=description, color=0x4c2bbe)
+                embed_2.set_author(name=f"{ctx.message.author.display_name}", icon_url=f"{ctx.message.author.avatar_url}")
+                embed_2.add_embed_field(name="Opinion", value="0", inline=True)
+                embed_2.add_embed_field(name="Votes", value="0", inline=True)
+                embed_2.add_embed_field(name="Comments", value="0", inline=True)
                 embed_2.set_footer(text=f"Category • Suggestion ID: {fid}")
-                msg = await channel.send(embed=embed_2)
+                webhook.add_embed(embed_2)
+                webhook.execute()
+                msg = await channel.fetch_message(channel.last_message_id)
                 await msg.add_reaction("<:upvote:767964478570496030>")
                 await msg.add_reaction("<:downvote:767964478574690304>")
             except discord.HTTPException as err:
@@ -81,18 +75,17 @@ class Feedback(commands.Cog):
                 suggestion = {"fid": num, "title": title, "comments": []}
                 fb = db.suggestions.insert_one(suggestion)
                 channel = self.client.get_channel(768231762705907743)
-                fbfd = db.suggestions.find_one({"_id": fb.inserted_id})
-                fid = fbfd.fid
-                embed_2 = discord.Embed(title=title, description=None, color=0x4C2BBE)
-                embed_2.set_author(
-                    name=ctx.message.author.display_name,
-                    icon_url=ctx.message.author.avatar_url,
-                )
-                embed_2.add_field(name="Opinion", value="0", inline=True)
-                embed_2.add_field(name="Votes", value="0", inline=True)
-                embed_2.add_field(name="Comments", value="0", inline=True)
+                fbfd = db.suggestions.find_one({'_id': fb.inserted_id})
+                fid = fbfd["fid"]
+                embed_2 = DiscordEmbed(title=title, description=None, color=0x4c2bbe)
+                embed_2.set_author(name=f"{ctx.message.author.display_name}", icon_url=f"{ctx.message.author.avatar_url}")
+                embed_2.add_embed_field(name="Opinion", value="0", inline=True)
+                embed_2.add_embed_field(name="Votes", value="0", inline=True)
+                embed_2.add_embed_field(name="Comments", value="0", inline=True)
                 embed_2.set_footer(text=f"Category • Suggestion ID: {fid}")
-                msg = await channel.send(embed=embed_2)
+                webhook.add_embed(embed_2)
+                webhook.execute()
+                msg = await channel.fetch_message(channel.last_message_id)
                 await msg.add_reaction("<:upvote:767964478570496030>")
                 await msg.add_reaction("<:downvote:767964478574690304>")
             except discord.HTTPException as err:
