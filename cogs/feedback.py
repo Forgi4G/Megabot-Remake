@@ -114,6 +114,7 @@ class Feedback(commands.Cog):
                 embed = discord.Embed(title="Comment added:", description=comment, color=0x3499DB)
                 embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
                 embed.set_footer(text=f"Category • Suggestion ID: {idf}")
+                await ctx.send(embed=embed)
 
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
