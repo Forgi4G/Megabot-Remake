@@ -23,8 +23,8 @@ class Feedback(commands.Cog):
             try:
                 stri = " ".join(content)
                 indx = stri.find("|")
-                title = stri[0 : indx - 1]
-                description = stri[indx + 2 : len(stri) + 1]
+                title = stri[0: indx - 1]
+                description = stri[indx + 2: len(stri) + 1]
                 num = db.suggestions.count() + 1
 
                 channel = self.client.get_channel(768231762705907743)
@@ -43,7 +43,8 @@ class Feedback(commands.Cog):
                 fbfd = db.suggestions.find_one({'_id': fb.inserted_id})
                 fid = fbfd["fid"]
                 embed_2 = DiscordEmbed(title=title, description=description, color=0x4c2bbe)
-                embed_2.set_author(name=f"{ctx.message.author.display_name}", icon_url=f"{ctx.message.author.avatar_url}")
+                embed_2.set_author(name=f"{ctx.message.author.display_name}",
+                                   icon_url=f"{ctx.message.author.avatar_url}")
                 embed_2.add_embed_field(name="Opinion", value="0", inline=True)
                 embed_2.add_embed_field(name="Votes", value="0", inline=True)
                 embed_2.add_embed_field(name="Comments", value="0", inline=True)
@@ -78,7 +79,8 @@ class Feedback(commands.Cog):
                 fbfd = db.suggestions.find_one({'_id': fb.inserted_id})
                 fid = fbfd["fid"]
                 embed_2 = DiscordEmbed(title=title, description=None, color=0x4c2bbe)
-                embed_2.set_author(name=f"{ctx.message.author.display_name}", icon_url=f"{ctx.message.author.avatar_url}")
+                embed_2.set_author(name=f"{ctx.message.author.display_name}",
+                                   icon_url=f"{ctx.message.author.avatar_url}")
                 embed_2.add_embed_field(name="Opinion", value="0", inline=True)
                 embed_2.add_embed_field(name="Votes", value="0", inline=True)
                 embed_2.add_embed_field(name="Comments", value="0", inline=True)
@@ -99,16 +101,16 @@ class Feedback(commands.Cog):
                 stri = " ".join(content)
                 indx = stri.find("|")
                 idf = stri[0:indx]
-                comment = stri[indx + 1 : len(stri) + 1]
+                comment = stri[indx + 1: len(stri) + 1]
 
-                commentObject = {
+                commentobject = {
                     "author": f"{ctx.message.author.name}#{ctx.message.author.discriminator}",
                     "comment": comment.lstrip(),
                 }
 
                 fb = db.suggestions.find_one_and_update(
                     {"fid": int(idf)},
-                    {"$push": {"comments": commentObject}},
+                    {"$push": {"comments": commentobject}},
                     return_document=ReturnDocument.AFTER,
                 )
                 embed = discord.Embed(title="Comment added:", description=comment, color=0x3499DB)
