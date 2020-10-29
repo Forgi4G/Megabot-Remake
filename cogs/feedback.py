@@ -46,14 +46,15 @@ class Feedback(commands.Cog):
                 embed = discord.Embed(title=title, description=description, color=0x3499DB)
                 embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
                 embed.set_footer(text=f"Category • {datetime.today().strftime('%m-%d-%Y')}")
-
                 await ctx.send(embed=embed)
+
                 suggestion = {
                     "fid": num,
                     "title": title,
                     "description": description,
                     "comments": [],
                 }
+
                 fb = db.suggestions.insert_one(suggestion)
                 sugembed(title, description, fb, author, icon)
                 msg = await channel.fetch_message(channel.last_message_id)
@@ -69,6 +70,7 @@ class Feedback(commands.Cog):
                 num = db.suggestions.count() + 1
                 author = ctx.message.author.display_name
                 icon = ctx.message.author.avatar_url
+
                 embed = discord.Embed(title=stri, description=None, color=0x3499DB)
                 embed.set_author(
                     name=ctx.message.author.display_name,
@@ -80,6 +82,7 @@ class Feedback(commands.Cog):
                 embed.set_footer(
                     text=f"Category • {datetime.today().strftime('%m-%d-%Y')}"
                 )
+
                 await ctx.send(embed=embed)
                 suggestion = {"fid": num, "title": title, "comments": []}
                 fb = db.suggestions.insert_one(suggestion)
