@@ -1,0 +1,7 @@
+{
+  "name": "Megabot-Remake",
+  "version": "1.0.0",
+  "dependencies": {
+    "discord.js": "^12.4.1"
+  }
+}
