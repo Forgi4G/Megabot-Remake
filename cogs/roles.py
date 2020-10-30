@@ -30,10 +30,7 @@ class Roles(commands.Cog):
     def __init__(self, client: commands.Bot):
         self.client = client
 
-    @commands.command(
-        name="buy",
-        aliases=[]
-    )
+    @commands.command(name="buy")
     # @commands.dm_only()
     async def buy_role(self, ctx: commands.Context, role="role", rnumber=None):
         if rnumber:

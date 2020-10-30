@@ -84,7 +84,7 @@ class Feedback(commands.Cog):
                 )
 
                 await ctx.send(embed=embed)
-                suggestion = {"fid": num, "title": title, "comments": []}
+                suggestion = {"fid": num, "title": title, "description": 0, "comments": []}
                 fb = db.suggestions.insert_one(suggestion)
                 channel = self.client.get_channel(768231762705907743)
                 sugembed(title, None, fb, author, icon)
@@ -110,7 +110,7 @@ class Feedback(commands.Cog):
                     "comment": comment.lstrip(),
                 }
 
-                fb = db.suggestions.find_one_and_update(
+                db.suggestions.find_one_and_update(
                     {"fid": int(idf)},
                     {"$push": {"comments": commentobject}},
                     return_document=ReturnDocument.AFTER,
@@ -122,6 +122,32 @@ class Feedback(commands.Cog):
 
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
+
+    @commands.command(name="info")
+    @commands.guild_only()
+    async def info(self, ctx: commands.Context, suggestion: int):
+        fb = db.suggestions.find_one(
+            {"fid": int(suggestion)}
+        )
+        fbtitle = fb["title"]
+        fbdesc = fb["description"]
+
+        def inemb(title, description):
+            embed = discord.Embed(title=title, description=description, color=0x3499DB)
+            embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
+            embed.add_field(name="Opinion", value="0", inline=True)
+            embed.add_field(name="Votes", value="0", inline=True)
+            embed.add_field(name="Comments", value="0", inline=True)
+            embed.set_footer(text="Category • What date goes here?")
+            return embed
+
+        if fbdesc == 0:
+            msg = await ctx.send(embed=inemb(fbtitle, None))
+        else:
+            msg = await ctx.send(embed=inemb(fbtitle, fbdesc))
+
+        await msg.add_reaction("<:upvote:767964478570496030>")
+        await msg.add_reaction("<:downvote:767964478574690304>")
 
 
 def setup(client: commands.Bot):
