@@ -132,14 +132,9 @@ class Feedback(commands.Cog):
         fbtitle = fb["title"]
         fbdesc = fb["description"]
 
-        def inemb(title, description):
-            embed = discord.Embed(title=title, description=description, color=0x3499DB)
-            embed.set_author(name=ctx.message.author.display_name, icon_url=ctx.message.author.avatar_url)
-            embed.add_field(name="Opinion", value="0", inline=True)
-            embed.add_field(name="Votes", value="0", inline=True)
-            embed.add_field(name="Comments", value="0", inline=True)
-            embed.set_footer(text="Category • What date goes here?")
-            return embed
+
+# ctx.message.author.display_name
+# ctx.message.author.avatar_url
 
         if fbdesc == 0:
             msg = await ctx.send(embed=inemb(fbtitle, None))
