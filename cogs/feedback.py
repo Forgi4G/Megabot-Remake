@@ -123,27 +123,6 @@ class Feedback(commands.Cog):
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
 
-    @commands.command(name="info")
-    @commands.guild_only()
-    async def info(self, ctx: commands.Context, suggestion: int):
-        fb = db.suggestions.find_one(
-            {"fid": int(suggestion)}
-        )
-        fbtitle = fb["title"]
-        fbdesc = fb["description"]
-
-
-# ctx.message.author.display_name
-# ctx.message.author.avatar_url
-
-        if fbdesc == 0:
-            msg = await ctx.send(embed=inemb(fbtitle, None))
-        else:
-            msg = await ctx.send(embed=inemb(fbtitle, fbdesc))
-
-        await msg.add_reaction("<:upvote:767964478570496030>")
-        await msg.add_reaction("<:downvote:767964478574690304>")
-
 
 def setup(client: commands.Bot):
     client.add_cog(Feedback(client))
