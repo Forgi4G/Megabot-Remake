@@ -11,12 +11,12 @@
   <h1 align="center">Megabot</h1>
 
   <p align="center">
-    A remake of the classic Megabot used in discord suggestions
+    A remake of the classic Megabot used in Discord Feedback
     <br />
     <a href="https://github.com/PiPinecone/Megabot-Remake/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://media.discordapp.net/attachments/767919869063593984/768229080062885939/Screen_Shot_2020-10-20_at_3.45.42_PM.png?width=726&height=676">View Demo</a>
+    <a href="">View Demo</a>
     ·
     <a href="https://github.com/PiPinecone/Megabot-Remake/issues">Report Bug</a>
     ·
@@ -52,8 +52,8 @@
 
 ## About The Project
 <p align="left">
-  <a href="https://media.discordapp.net/attachments/767919869063593984/768229080062885939/Screen_Shot_2020-10-20_at_3.45.42_PM.png?width=726&height=676">
-    <img src="https://media.discordapp.net/attachments/767919869063593984/768229080062885939/Screen_Shot_2020-10-20_at_3.45.42_PM.png?width=726&height=676">
+  <a href="">
+    <img src="">
   </a>
 
 

@@ -2,20 +2,27 @@ import discord
 from discord.ext import commands
 import os
 import traceback
-from secrets import TOKEN
+from pymongo import MongoClient
+from secrets import TOKEN, MURL
 # import json
 
 
 client = commands.Bot(command_prefix="!", case_insensitive=True)
+mcli = MongoClient(MURL)
 
 
 client.load_extension('jishaku')
 
 
+db = mcli.feedback
+count = db["suggestions"].count_documents({})
+
+
 @client.event
 async def on_ready():
     print('Logged in as {0.user}'.format(client))
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Feedback?"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching,
+                                                           name=f"{count} suggestions!"))
     print(f"Currently in {len(list(client.guilds))} guilds.")
 
 
