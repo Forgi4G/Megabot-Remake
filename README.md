@@ -13,21 +13,21 @@
   <p align="center">
     A remake of the classic Megabot used in Discord Feedback
     <br />
-    <a href="https://github.com/PiPinecone/Megabot-Remake/wiki"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Forgi4G/Megabot-Remake/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="">View Demo</a>
     ·
-    <a href="https://github.com/PiPinecone/Megabot-Remake/issues">Report Bug</a>
+    <a href="https://github.com/Forgi4G/Megabot-Remake/issues">Report Bug</a>
     ·
-    <a href="https://github.com/PiPinecone/Megabot-Remake/issues">Request Feature</a>
+    <a href="https://github.com/Forgi4G/Megabot-Remake/issues">Request Feature</a>
   </p>
   <div align="center">
-    <a href="https://github.com/PiPinecone/Megabot-Remake/issues">
-      <img src="https://img.shields.io/github/issues/PiPinecone/Megabot-Remake.svg">
+    <a href="https://github.com/Forgi4G/Megabot-Remake/issues">
+      <img src="https://img.shields.io/github/issues/Forgi4G/Megabot-Remake.svg">
     </a>
-    <a href="https://github.com/PiPinecone/Megabot-Remake/pulls">
-      <img src="https://img.shields.io/github/issues-pr-raw/PiPinecone/Megabot-Remake.svg">
+    <a href="https://github.com/Forgi4G/Megabot-Remake/pulls">
+      <img src="https://img.shields.io/github/issues-pr-raw/Forgi4G/Megabot-Remake.svg">
     </a>
   </div>
 </p>
@@ -51,10 +51,11 @@
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
-<p align="left">
+This is a project attempting to recreate Discord Feedback's Megabot in a series of branches.
+<!-- <p align="left">
   <a href="">
     <img src="">
-  </a>
+  </a> -->
 
 
 <!-- Here's a blank template to get started:
@@ -76,7 +77,7 @@ To get a local copy up and running follow these simple steps.
 1. Clone the repo
 
 ```bash
-git clone https://github.com/PiPinecone/Megabot-Remake.git
+git clone https://github.com/Forgi4G/Megabot-Remake.git
 ```
 
 2. Install the packages
@@ -136,4 +137,4 @@ This readme file, along with the contributing and code of conduct files were ori
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [original-template]: https://github.com/csivitu/Template
-[issues-link]: https://github.com/PiPinecone/Megabot-Remake/issues
+[issues-link]: https://github.com/Forgi4G/Megabot-Remake/issues
