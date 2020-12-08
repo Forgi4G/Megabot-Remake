@@ -52,9 +52,7 @@
 
 ## About The Project
 <p align="left">
-  <a href="">
-    <img src="">
-  </a>
+  This is a project attempting to recreate Discord Feedback's Megabot in python
 
 
 <!-- Here's a blank template to get started:
