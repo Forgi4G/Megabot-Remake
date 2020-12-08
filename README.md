@@ -13,21 +13,21 @@
   <p align="center">
     A remake of the classic Megabot used in discord suggestions
     <br />
-    <a href="https://github.com/PiPinecone/Megabot-Remake/wiki"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Forgi4G/Megabot-Remake/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://media.discordapp.net/attachments/767919869063593984/768229080062885939/Screen_Shot_2020-10-20_at_3.45.42_PM.png?width=726&height=676">View Demo</a>
     ·
-    <a href="https://github.com/PiPinecone/Megabot-Remake/issues">Report Bug</a>
+    <a href="https://github.com/Forgi4G/Megabot-Remake/issues">Report Bug</a>
     ·
-    <a href="https://github.com/PiPinecone/Megabot-Remake/issues">Request Feature</a>
+    <a href="https://github.com/Forgi4G/Megabot-Remake/issues">Request Feature</a>
   </p>
   <div align="center">
-    <a href="https://github.com/PiPinecone/Megabot-Remake/issues">
-      <img src="https://img.shields.io/github/issues/PiPinecone/Megabot-Remake.svg">
+    <a href="https://github.com/Forgi4G/Megabot-Remake/issues">
+      <img src="https://img.shields.io/github/issues/Forgi4G/Megabot-Remake.svg">
     </a>
-    <a href="https://github.com/PiPinecone/Megabot-Remake/pulls">
-      <img src="https://img.shields.io/github/issues-pr-raw/PiPinecone/Megabot-Remake.svg">
+    <a href="https://github.com/Forgi4G/Megabot-Remake/pulls">
+      <img src="https://img.shields.io/github/issues-pr-raw/Forgi4G/Megabot-Remake.svg">
     </a>
   </div>
 </p>
@@ -76,7 +76,7 @@ To get a local copy up and running follow these simple steps.
 1. Clone the repo
 
 ```bash
-git clone https://github.com/PiPinecone/Megabot-Remake.git
+git clone https://github.com/Forgi4G/Megabot-Remake.git
 ```
 
 2. Install the packages
@@ -136,4 +136,4 @@ This readme file, along with the contributing and code of conduct files were ori
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [original-template]: https://github.com/csivitu/Template
-[issues-link]: https://github.com/PiPinecone/Megabot-Remake/issues
+[issues-link]: https://github.com/Forgi4G/Megabot-Remake/issues
