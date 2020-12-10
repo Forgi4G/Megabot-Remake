@@ -10,6 +10,7 @@ class Other(commands.Cog):
         name="ping"
     )
     @commands.guild_only()
+    @commands.cooldown(2, 3, commands.BucketType.user)
     async def ping(self, ctx: commands.Context):
         await ctx.send(f"<@!{ctx.message.author.id}>, Pong!")
 

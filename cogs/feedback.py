@@ -31,6 +31,7 @@ class Feedback(commands.Cog):
 
     @commands.command(name="suggest")
     @commands.guild_only()
+    @commands.cooldown(2, 3, commands.BucketType.user)
     async def suggest(self, ctx: commands.Context, *content: str):
         if "|" in content:
             try:
@@ -97,6 +98,7 @@ class Feedback(commands.Cog):
 
     @commands.command(name="comment")
     @commands.guild_only()
+    @commands.cooldown(2, 3, commands.BucketType.user)
     async def comment(self, ctx: commands.Context, *content: str):
         if "|" in content:
             try:

@@ -31,6 +31,7 @@ class Roles(commands.Cog):
         self.client = client
 
     @commands.command(name="buy")
+    @commands.cooldown(2, 3, commands.BucketType.user)
     # @commands.dm_only()
     async def buy_role(self, ctx: commands.Context, role="role", rnumber=None):
         if rnumber:

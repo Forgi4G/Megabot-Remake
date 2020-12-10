@@ -26,6 +26,7 @@ class Custodians(commands.Cog):
 
     @commands.command(name="info")
     @commands.guild_only()
+    @commands.cooldown(2, 3, commands.BucketType.user)
     @commands.has_role(767921468272934972)
     async def info(self, ctx: commands.Context, suggestion: int):
         fb = db.suggestions.find_one(
