@@ -43,7 +43,6 @@ class Custodians(commands.Cog):
 
         await msg.add_reaction("<:upvote:767964478570496030>")
         await msg.add_reaction("<:downvote:767964478574690304>")
-        await msg.add_reaction("<:report:767964478293278781>")
 
 
 def setup(client: commands.Bot):
