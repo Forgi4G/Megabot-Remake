@@ -126,18 +126,6 @@ class Feedback(commands.Cog):
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
 
-    # @commands.command(name="edit")
-    # @commands.guild_only()
-    # @commands.cooldown(2, 3, commands.BucketType.user)
-    # async def edit(self, ctx: commands.Context, *content)
-        # if "|" in content:
-            # try:
-
-                # if ctx.message.author.display_name ==
-
-            # except discord.HTTPException as err:
-                # await ctx.send(f"Error: {err.text}")
-
 
 def setup(client: commands.Bot):
     client.add_cog(Feedback(client))
