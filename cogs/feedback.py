@@ -51,6 +51,7 @@ class Feedback(commands.Cog):
 
                 suggestion = {
                     "fid": num,
+                    "author": ctx.message.author.id,
                     "title": title,
                     "description": description,
                     "comments": [],
