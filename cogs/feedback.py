@@ -126,17 +126,26 @@ class Feedback(commands.Cog):
             except discord.HTTPException as err:
                 await ctx.send(f"Error: {err.text}")
 
-    # @commands.command(name="edit")
-    # @commands.guild_only()
-    # @commands.cooldown(2, 3, commands.BucketType.user)
-    # async def edit(self, ctx: commands.Context, *content)
-        # if "|" in content:
-            # try:
+    @commands.command(name="edit")
+    @commands.guild_only()
+    @commands.cooldown(2, 3, commands.BucketType.user)
+    async def edit(self, ctx: commands.Context, *content):
+        if "|" in content:
+            try:
+                stri = " ".join(content)
+                indx = stri.find("|")
+                idf = stri[0:indx]
+                ncont = stri[indx + 1: len(stri) + 1]
+                aut = db.suggestions.find_one({"author": int(idf)})
 
-                # if ctx.message.author.display_name ==
+                if ctx.message.author.id == aut:
+                    db.suggestions.find_one_and_update(
+                        {"fid", int(idf)},
+                        {"$push": {"description": ncont}}
+                    )
 
-            # except discord.HTTPException as err:
-                # await ctx.send(f"Error: {err.text}")
+            except discord.HTTPException as err:
+                await ctx.send(f"Error: {err.text}")
 
 
 def setup(client: commands.Bot):
