@@ -4,7 +4,6 @@ import os
 import traceback
 from pymongo import MongoClient
 from secrets import TOKEN, MURL
-# import json
 
 
 client = commands.Bot(command_prefix="!", case_insensitive=True)
